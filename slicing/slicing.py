@@ -20,6 +20,7 @@ print(name[0:7]) # 'Michael' --->  Returns the first 7 characters of the string.
 print(name[8:13]) # 'Jorda ' --->  Returns the characters from index 8 to the end of the string.
 print(name[8:]) # 'Jordan' --->  Returns the characters from index 8 to the end of the string.
 print(name[:7]) # 'Michael' --->  Returns the first 7 characters of the string.
+print(name[::2]) # 'McalJoa' --->  Returns every second character of the string.
 
 
 
