@@ -21,4 +21,4 @@ my_tuple = ('abc', 123, 'def', 456, 789, 'ghi')
 print(my_tuple[3:5]) # prints (456, 789) ---> index stop at 3, cut off at length 5
 
 
-print(my_list[::2]) # [1,3,5] ---> 2 is the step size, so it will print every second element
+print(my_list[::2]) # [1,3,5] ---> 2 is the step size, so it will print every second element of the list
