@@ -65,3 +65,15 @@ print(students) # {'Jane', 'Carlos', 'Chau', 'Dmitry', 'Amy'}
 count_down = set([9, 8, 7, 6, 5, 4, 3, 2, 1])
 for num in count_down:
    print(num, 'seconds left!')
+   
+   
+set1 = {1, 2, 3, 4, 5}
+set2 = {4, 5, 6, 7, 8}
+set3 = set1 & set2
+print(set3) # {4, 5} --->  Representing a venn diagram, the intersection is the area where two circles overlap.
+
+# Add a new element to a set
+V={'A','B'}
+V.add('C')
+print(V) # {'A', 'B', 'C'}
+
