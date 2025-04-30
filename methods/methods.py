@@ -61,3 +61,4 @@ print(type(123.45)) # <class 'float'> --->  Returns the type of the object.
 print(type("123")) # <class 'str'> --->  Returns the type of the object.
 
 print(type(True)) # <class 'bool'> --->  Returns the type of the object.
+
