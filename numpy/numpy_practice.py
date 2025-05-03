@@ -2,6 +2,27 @@
 # add some numpy code here to practice numpy
 import numpy as np
 import matplotlib.pyplot as plt
+
+
+# important installation: pip install numpy matplotlib
+# if doesn't work double check: pip show matplotlib
+# Then try: python -m pip install matplotlib
+
+
+
+# Create a list
+
+my_list = [[11, 12, 13], [21, 22, 23], [31, 32, 33]]
+
+my_list = np.array(my_list) # convert the list to a numpy array
+print("List converted to numpy array:\n", my_list) # print the numpy array
+
+print(f"print the shape of the numpy array: {my_list.shape}") # print the shape of the numpy array
+print(f"print the number of dimensions: {my_list.ndim}") # print the number of dimensions of the numpy array
+print(f"print the size of the numpy array: {my_list.size}") # print the size of the numpy array
+print(my_list[1,2]) # print the element at index [1,2] of the numpy array --> 23 
+
+
 # Create a 1D array of integers from 0 to 9
 array_1d = np.arange(10)
 print("1D Array:", array_1d)
@@ -21,14 +42,38 @@ print(data_type) # [ 1 10 3 4 5]
 slice_array = data_type[1:4] # slice the array from index 1 to 4
 print(slice_array) # [10  3  4]
 
+# Array addition
+array1 = np.array([1, 2, 3])
+array2 = np.array([4, 5, 6])
+result = array1 + array2
+print(result)  # [5 7 9]
 
-# create a simple plot with numpy
-x = np.arange(0, 10, 0.1) # create an array from 0 to 10 with a step of 0.1
-y = np.sin(x) # create an array of sine values for each element in x
-plt.plot(x, y) # plot the sine values against x
-print("Plotting x and y diagram...")
-plt.xlabel('x') # label the x-axis
-plt.ylabel('y') # label the y-axis
-plt.title('x and y plot') # title of the plot
-plt.grid() # add a grid to the plot
-plt.show() # show the plot
+# Scalar multiplication
+array = np.array([1, 2, 3])
+result = array * 2 # each element of an array is multiplied by 2
+print(result)  # [2 4 6]
+
+
+# Element-wise multiplication (Hadamard product)
+array1 = np.array([1, 2, 3])
+array2 = np.array([4, 5, 6])
+result = array1 * array2
+print(result)  # [4 10 18]
+
+# Matrix multiplication
+matrix1 = np.array([[1, 2], [3, 4]])
+matrix2 = np.array([[5, 6], [7, 8]])
+result = np.dot(matrix1, matrix2)
+print(result) 
+# [[19 22]
+#  [43 50]]
+
+
+X=np.array([[1,0],[0,1]])
+
+Y=np.array([[2,2],[2,2]]) 
+
+Z=np.dot(X,Y) 
+print(Z) # [[2 2]
+#  [2 2]]
+
