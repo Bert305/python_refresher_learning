@@ -6,11 +6,10 @@ app = Flask(__name__)
 
 # add environment variable for MySQL password
 import os
-import dotenv
-dotenv.load_dotenv()
+from dotenv import load_dotenv
+load_dotenv()
 import pymysql.cursors
-os.environ['MYSQL_PASSWORD'] = 'your_mysql_password'
-os.environ['MYSQL_USER'] = 'your_mysql_user'
+
 CORS(app)
 
 
@@ -24,6 +23,7 @@ def get_db_connection():
         db='flask_api',
         cursorclass=pymysql.cursors.DictCursor
     )
+
 
 
 # Create a new user
