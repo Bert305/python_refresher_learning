@@ -9,6 +9,18 @@ import matplotlib.pyplot as plt
 # Then try: python -m pip install matplotlib
 
 
+# practice numpy with arrays
+a = np.array([1,1,1,1,1,1]) 
+a + 1 
+print(a) # [1 1 1 1 1 1]
+print(a + 1) # [2 2 2 2 2 2]
+print(a + 10) # [11 11 11 11 11 11]
+
+
+# practice numpy with arrays
+h = np.array([0,1,0,1,0])
+f = np.array([1,0,1,0,1])
+print(h*f) # answer: [0 0 0 0 0] --> element-wise multiplication of two arrays
 
 # Create a list
 
