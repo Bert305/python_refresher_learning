@@ -27,6 +27,9 @@ def get_db_connection():
 
 
 # Create a new user
+# url: http://127.0.0.1:5000/users
+# Method: POST
+# Body: {"first_name": "John", "last_name": "Doe", "phone": "1234567890", "email": john@example.com"
 @app.route('/users', methods=['POST'])
 def add_user():
     data = request.get_json()
@@ -47,6 +50,8 @@ def add_user():
     return jsonify({'message': 'User created successfully'}), 201
 
 # Read all users
+# URL: http://127.0.0.1:5000/users
+# Method: GET
 @app.route('/users', methods=['GET'])
 def get_users():
     conn = get_db_connection()
@@ -58,6 +63,8 @@ def get_users():
     return jsonify(users)
 
 # Read single user
+# URL: http://127.0.0.1:5000/users/1
+# Method: GET
 @app.route('/users/<int:id>', methods=['GET'])
 def get_user(id):
     conn = get_db_connection()
@@ -72,6 +79,9 @@ def get_user(id):
         return jsonify({'message': 'User not found'}), 404
 
 # Update a user
+# URL: http://127.0.0.1:5000/users/1
+# Method: PUT
+# Body: {"first_name": "John", "last_name": "Doe", "phone": "1234567890", "email": john@example.com"}
 @app.route('/users/<int:id>', methods=['PUT'])
 def update_user(id):
     data = request.get_json()
@@ -87,6 +97,8 @@ def update_user(id):
     return jsonify({'message': 'User updated successfully'})
 
 # Delete a user
+# URL: http://127.0.0.1:5000/users/1
+# Method: DELETE
 @app.route('/users/<int:id>', methods=['DELETE'])
 def delete_user(id):
     conn = get_db_connection()
