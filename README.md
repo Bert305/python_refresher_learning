@@ -93,7 +93,7 @@ For more Python practice exercises, consider exploring the [python\_practice\_20
 
 ---
 
-Go here to learn about <a _href="https://chatgpt.com/share/681bbaa9-9f80-800f-a325-60904ebb989e">scrapy</a>
+Go here to learn about <a href="https://chatgpt.com/share/681bbaa9-9f80-800f-a325-60904ebb989e">scrapy</a>
 
 ---
 
