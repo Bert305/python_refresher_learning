@@ -93,6 +93,10 @@ For more Python practice exercises, consider exploring the [python\_practice\_20
 
 ---
 
+Go here to learn about <a _href="https://chatgpt.com/share/681bbaa9-9f80-800f-a325-60904ebb989e">scrapy</a>
+
+---
+
 [1]: https://github.com/tecladocode/python-refresher?utm_source=chatgpt.com "A Python refresher section for all our courses - GitHub"
 [2]: https://github.com/junyanyao/ISLR_Python?utm_source=chatgpt.com "GitHub - junyanyao/ISLR_Python: Introduction to Statistical Learning ..."
 [3]: https://github.com/msmarroquin/Python-Jupyter-Basics?utm_source=chatgpt.com "GitHub - msmarroquin/Python-Jupyter-Basics: This repository houses my ..."
