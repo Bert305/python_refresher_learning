@@ -27,6 +27,7 @@ The repository is organized into directories, each focusing on a specific Python
 * **`slicing/`**: Accessing subsets of data structures.
 * **`tuples/`**: Immutable sequences.
 * **`web_scrape/`**: Extracting data from websites.([GitHub][1])
+* **`myscrapingproject/`**: A custom web scraping project demonstrating advanced scraping techniques.
 
 ---
 
@@ -38,8 +39,6 @@ The repository is organized into directories, each focusing on a specific Python
    git clone https://github.com/Bert305/python_refresher_learning.git
    cd python_refresher_learning
    ```
-
-
 
 2. **Explore Topics**:
 
@@ -65,8 +64,6 @@ Install the required libraries using `pip`:
 ```bash
 pip install numpy pandas flask requests beautifulsoup4
 ```
-
-
 
 ---
 
@@ -99,4 +96,5 @@ For more Python practice exercises, consider exploring the [python\_practice\_20
 [1]: https://github.com/tecladocode/python-refresher?utm_source=chatgpt.com "A Python refresher section for all our courses - GitHub"
 [2]: https://github.com/junyanyao/ISLR_Python?utm_source=chatgpt.com "GitHub - junyanyao/ISLR_Python: Introduction to Statistical Learning ..."
 [3]: https://github.com/msmarroquin/Python-Jupyter-Basics?utm_source=chatgpt.com "GitHub - msmarroquin/Python-Jupyter-Basics: This repository houses my ..."
+
 
