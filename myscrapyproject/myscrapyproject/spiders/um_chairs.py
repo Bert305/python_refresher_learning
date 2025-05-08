@@ -19,3 +19,7 @@ class UmChairsSpider(scrapy.Spider):
                     'chair_name': cells[1].xpath('.//a/text()').get(),
                     'chair_email': cells[2].xpath('.//a/text()').get()
                 }
+                
+                
+     # export csv file in terminal --> scrapy crawl um_chairs -o um_chairs.csv
+     # export json file in terminal --> scrapy crawl um_chairs -o um_chairs.json           
