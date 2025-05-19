@@ -29,4 +29,20 @@ industry_counts.to_csv(output_path, index=False)
 
 # import ace_tools as tools; tools.display_dataframe_to_user(name="Job Industry Counts and Percentages", dataframe=industry_counts)
 
+import matplotlib.pyplot as plt
+
+# Pie chart of job title industry counts and percentages
+plt.figure(figsize=(8, 8))
+plt.pie(
+    industry_counts['Count'],
+    labels=industry_counts['Job Title Industry'],
+    autopct='%1.1f%%',
+    startangle=140
+)
+plt.title('Job Title Industry Distribution')
+plt.tight_layout()
+plt.show()
+
+
+
 output_path
