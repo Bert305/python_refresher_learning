@@ -116,3 +116,7 @@ print("Mean absolute error: %.2f" % mean_absolute_error(y_test, y_test_)) # calc
 print("Mean squared error: %.2f" % mean_squared_error(y_test, y_test_)) # calculates the average squared difference between the actual and predicted values.
 print("Root mean squared error: %.2f" % np.sqrt(mean_squared_error(y_test, y_test_))) # calculates the square root of the mean squared error, which gives us an idea of how far off our predictions are on average.
 print("R2-score: %.2f" % r2_score(y_test, y_test_)) # R2-score is a measure of how well the model fits the data. It ranges from 0 to 1, where 1 means perfect fit and 0 means no fit at all.
+# if the engine size is 5, the predicted CO2 emissions would be:
+engine_size = 5
+predicted_emission = regressor.predict(np.array([[engine_size]])) # We need to reshape the input to be a 2D array with one row and one column.
+print(f"Predicted CO2 emissions for engine size {engine_size}L: {predicted_emission[0]:.2f} g/km")
