@@ -100,7 +100,8 @@ print ('Coefficients: ', regressor.coef_[0]) # --> Intercept = the pollution whe
 # This is a scatter plot of the training data with the regression line.
 # X_train is the engine size, y_train is the CO2 emissions.
 plt.scatter(X_train, y_train,  color='blue')
-plt.plot(X_train, regressor.coef_ * X_train + regressor.intercept_, '-r')
+plt.plot(X_train, regressor.coef_ * X_train + regressor.intercept_, '-r') # This line draws the regression line using the coefficients and intercept.
+# The regression line is drawn using the formula: y = mx + b, where m is the slope (coefficient) and b is the y-intercept.
 plt.xlabel("Engine size")
 plt.ylabel("Emission")
 
@@ -120,3 +121,7 @@ print("R2-score: %.2f" % r2_score(y_test, y_test_)) # R2-score is a measure of h
 engine_size = 5
 predicted_emission = regressor.predict(np.array([[engine_size]])) # We need to reshape the input to be a 2D array with one row and one column.
 print(f"Predicted CO2 emissions for engine size {engine_size}L: {predicted_emission[0]:.2f} g/km")
+
+cylinder_size = 9
+predicted_emission_cyl = regressor.predict(np.array([[cylinder_size]]))
+print(f"Predicted CO2 emissions for cylinder size {cylinder_size}: {predicted_emission_cyl[0]:.2f} g/km")
