@@ -114,6 +114,14 @@ print(lr_results) # This will print the results of the Linear Regression model, 
 #----------------------------------------------------
 
 # Random Forest Regression
+# Random Forest - is an ensemble method that combines multiple decision trees to improve prediction accuracy and control over
+# This model builds many mini decision trees and averages their predictions.
+#**********
+# A decision tree - is a flowchart-like structure used for both decision-making and machine learning. 
+# It visually represents possible outcomes of a series of choices, helping individuals or organizations weigh different options based on costs, probabilities, and benefits. 
+# In machine learning, decision trees are used for classification and regression tasks, helping to predict outcomes based on data patterns.
+#**********
+
 from sklearn.ensemble import RandomForestRegressor
 
 
@@ -159,7 +167,7 @@ import seaborn as sns
 
 # Set the style of seaborn
 sns.set(style="whitegrid")
-# Create a skatter plot for the actual vs predicted values
+# Create a scatter plot for the actual vs predicted values
 plt.figure(figsize=(10, 6))
 plt.scatter(y_test, y_lr_test_pred, color='blue', label='Linear Regression', alpha=0.5)
 plt.scatter(y_test, y_rf_test_pred, color='red', label='Random Forest', alpha=0.5)
