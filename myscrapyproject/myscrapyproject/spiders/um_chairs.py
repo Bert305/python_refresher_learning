@@ -1,8 +1,8 @@
 
 import scrapy
-
+# cd into the project directory
 class UmChairsSpider(scrapy.Spider):
-    name = "um_chairs"
+    name = "um_chairs" # name for the spider in the terminal
     allowed_domains = ["facultyaffairs.miami.edu"]
     start_urls = [
         "https://facultyaffairs.miami.edu/resources/school-college-contacts/department-chairs/index.html"
