@@ -27,7 +27,7 @@ total = industry_counts['Count'].sum()
 industry_counts['Percentage'] = (industry_counts['Count'] / total * 100).round(2)
 
 # Save to CSV in the current directory (job_analysis)
-output_path = 'job_industry_counts_and_percentages3.csv'
+output_path = 'job_industry_counts_and_percentages4.csv'
 industry_counts.to_csv(output_path, index=False)
 
 # import ace_tools as tools; tools.display_dataframe_to_user(name="Job Industry Counts and Percentages", dataframe=industry_counts)
