@@ -122,7 +122,7 @@ print("R2-score: %.2f" % r2_score(y_test, y_test_)) # R2-score is a measure of h
 engine_size = 5
 predicted_emission = regressor.predict(np.array([[engine_size]])) # We need to reshape the input to be a 2D array with one row and one column.
 print(f"Predicted CO2 emissions for engine size {engine_size}L: {predicted_emission[0]:.2f} g/km")
-
+# if the cylinder size is 9, the predicted CO2 emissions would be:
 cylinder_size = 9
 predicted_emission_cyl = regressor.predict(np.array([[cylinder_size]]))
 print(f"Predicted CO2 emissions for cylinder size {cylinder_size}: {predicted_emission_cyl[0]:.2f} g/km")
