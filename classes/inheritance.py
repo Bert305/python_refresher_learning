@@ -20,6 +20,7 @@ class Animal:
 # child class
 class Dog(Animal):
     def __init__(self, name, breed):
+        # super() is a built-in function that allows you to call methods from a parent class.
         super().__init__(name, "Dog")  # Call the parent class constructor
         self.breed = breed
         
