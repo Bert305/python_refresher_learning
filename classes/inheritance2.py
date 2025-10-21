@@ -31,6 +31,8 @@ class Teacher(Person):
     #   self.subject = subject
 
       Person.__init__(self, name, age) # We can use the person class constructor to have further access.
+      # Alternatively, we could use super().__init__(name, age) to achieve the same result.
+      # Not needing the self parameter here as it is implied when using super().
 
 # now we can execute our myTeacher instance allowing the child class to use fields from the parent class
 myTeacher = Teacher("Dr. Hirani", 49, "Computer Science")
