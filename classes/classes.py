@@ -12,11 +12,19 @@ class User():
         self.age = age
         self.email = email
         self.gender = gender
+    
+    
+    # method to get user info from the class    
+    def get_info(self):
+        return f"Name: {self.name}, Age: {self.age}, Email: {self.email}, Gender: {self.gender}"
         
 user_1 = User("Bob", 30, "bob@gmail.com", "Male")
 
 user_2 = User("Ashley", 25, "ashley@gmail.com", "Female")
 
+
+print(user_1.get_info())
+print(user_2.get_info())
 print(user_1.name)
 print(user_2.age)
 print(f"My name is {user_1.name} and I am {user_1.age} years old.")
