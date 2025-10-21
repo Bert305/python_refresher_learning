@@ -19,6 +19,8 @@ The repository is organized into directories, each focusing on a specific Python
 - **`functions/`**: Defining and using functions.
 - **`linear_regression/`**: Implementing and understanding linear regression.
 - **`lists/`**: List operations and manipulations.
+- **`lambda/`**: Lambda functions — usage patterns plus examples with map and filter
+- **`data_visualization_and_analysis/`**: Data visualization and exploratory data analysis.
 - **`data_visualization_and_analysis/`**: Data visualization and exploratory data analysis.
 - **`My_first_ML_project/`**: Introductory machine learning project.
 - **`myscrapyproject/`**: Advanced web scraping project.
