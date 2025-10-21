@@ -1,5 +1,7 @@
 
 # add some numpy code here to practice numpy
+# numpy is a powerful library for numerical computing in Python
+
 import numpy as np
 import matplotlib.pyplot as plt
 
