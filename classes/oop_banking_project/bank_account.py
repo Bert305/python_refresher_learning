@@ -1,3 +1,11 @@
+
+# Project: OOP Banking System with Exception Handling.
+
+# Project: Also uses inheritance with the super() function to create a savings account with interest rewards and withdrawal fees.
+
+
+
+
 # The class is receiving an exception in the param with the pass statement
 class BalanceException(Exception):
     # This class is used for exception handling if we don't have enough money in the account to make a transaction.
@@ -69,7 +77,12 @@ class BankAccount():
                
                
                
+# Inheritance is cleverly used to create a new class that is a modified version of the existing BankAccount class.
 
+# Showing inheritance of inheriting all the attributes and methods of the parent class BankAccount.
+# InterestRewardsAcct (parent) --> BankAccount (child)
+# SavingsAcct --> InterestRewardsAcct --> BankAccount
+# Inheritance chain showing multi-level inheritance.
 class InterestRewardsAcct(BankAccount):
     # An interest account of 5% added to the balance. 
     def deposit(self, amount):
