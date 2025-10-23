@@ -29,8 +29,7 @@ The repository is organized into directories, each focusing on a specific Python
 - **`pandas/`**: Data analysis with Pandas.
 - **`sets/`**: Set operations and properties.
 - **`slicing/`**: Accessing subsets of data structures.
-- **`variables/`**: Understanding and using variables in Python.
-- **`web_scrape/`**: Extracting data from websites. ([Reference][1])
+- **`stack_and_heap/`**: Compact guide to stacks (LIFO) and heaps with explanations, implementations, examples, exercises, and tests.
 
 ---
 
