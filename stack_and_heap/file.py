@@ -2,6 +2,27 @@
 
 
 
+# Python Memory Model:
+
+
+# STACK------------
+# Stack → managed automatically for function calls and local variables.
+# When a function ends, its stack frame is destroyed.
+
+
+
+# HEAP------------
+# Heap → where all Python objects (lists, dicts, class instances, etc.) are stored.
+# The lifetime of these objects is not tied to a function call.
+# Managed by Python’s garbage collection system.
+
+
+
+
+
+
+
+
 #  Stack memory --> manages memory for function calls and local variables within the scope:
 # Stores local variables and function call information.
 
