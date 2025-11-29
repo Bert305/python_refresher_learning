@@ -21,7 +21,7 @@ The repository is organized into directories, each focusing on a specific Python
 - **`lists/`**: List operations and manipulations.
 - **`lambda/`**: Lambda functions — usage patterns plus examples with map and filter
 - **`data_visualization_and_analysis/`**: Data visualization and exploratory data analysis.
-- **`data_visualization_and_analysis/`**: Data visualization and exploratory data analysis.
+- **`decision_tree/`**: Decision tree algorithms and binary classification examples.
 - **`My_first_ML_project/`**: Introductory machine learning project.
 - **`myscrapyproject/`**: Advanced web scraping project.
 - **`numpy/`**: Numerical computations with NumPy.
