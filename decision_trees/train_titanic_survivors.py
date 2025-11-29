@@ -142,3 +142,15 @@ print("\nNew passengers (sex, age):")
 print("sex (0 = male, 1 = female)")
 print(new_passengers)
 print("Predicted survival (0=No, 1=Yes):", new_preds)
+
+
+
+
+# breakdown steps:
+
+# 1 import libraries and dataset
+# 2 create dataset
+# 3 split dataset into train and test sets
+# 4 create and train decision tree
+# 5 make predictions
+# 6 define accuracy function
