@@ -33,4 +33,17 @@ acc = accuracy(y_test, predictions)
 print(acc)
 print(f"Accuracy: {acc * 100:.2f}%") 
         # Initialize variables to track the best feature, threshold, and information gain
+
+# The output shows that your Decision Tree classifier achieved:
+
+# 91.23% accuracy (or 0.9122807017543859 in decimal form)
+
+# This means:
+
+# Out of 114 test samples (20% of 569 total samples), the model correctly predicted 104 cases
+# The model misclassified approximately 10 cases
+# What this accuracy indicates:
+
+# Good Performance: 91.23% is a solid accuracy for a custom-implemented decision tree on medical diagnosis
+# Clinical Context: In breast cancer diagnosis, this means the model correctly identifies whether a tumor is malignant or benign in about 9 out of 10 cases
         
