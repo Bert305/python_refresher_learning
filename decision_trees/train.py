@@ -12,9 +12,15 @@ X, y = data.data, data.target
 # Split data into training and test sets
 # test_size=0.2 means 20% of data goes to test set, 80% to training
 # random_state=1234 sets a seed so the split is reproducible
+
+# The breast cancer dataset has 569 samples total
+# So with the test size = 0.2
+# 569 * 0.2 = 113.8, approximately 114 samples will be in the test set, y_test
+# The remaining 455 samples will be in the training set, y_train
 X_train, X_test, y_train, y_test = train_test_split(
     X, y, test_size=0.2, random_state=1234
-)
+) # X_test contains 114 rows
+  # X_train contains 455 rows
 
 # Create an instance of our DecisionTree classifier with max depth = 10
 clf = DecisionTree(max_depth=10)
@@ -47,3 +53,14 @@ print(f"Accuracy: {acc * 100:.2f}%")
 # Good Performance: 91.23% is a solid accuracy for a custom-implemented decision tree on medical diagnosis
 # Clinical Context: In breast cancer diagnosis, this means the model correctly identifies whether a tumor is malignant or benign in about 9 out of 10 cases
         
+correct = np.sum(y_test == predictions)
+total = len(y_test)
+incorrect = total - correct
+
+print("Correct predictions:", correct) # Print the number of correct predictions
+print("Incorrect predictions:", incorrect) # Print the number of incorrect predictions
+print("Actual labels:", y_test) # Print the actual labels
+print("Total samples:", total) # Print the total number of samples
+print("Accuracy:", correct / total) # Print the accuracy of the model
+
+# Clinical Context: In breast cancer diagnosis, this means the model correctly identifies whether a tumor is malignant or benign in about 9 out of 10 cases

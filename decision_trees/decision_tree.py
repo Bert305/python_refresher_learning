@@ -17,6 +17,8 @@ class Node:
         
     def is_leaf_node(self):
         # A node is a leaf if it has a 'value' set (no further splitting)
+        # If the tree has reached a leaf node, STOP and return the 
+        # A leaf node is the end of a branch — it contains a final class label
         return self.value is not None
 
 
@@ -156,6 +158,8 @@ class DecisionTree:
 
     def _traverse_tree(self, x, node):
         # If current node is a leaf, return its stored class value
+        # If the tree has reached a leaf node, STOP and return the 
+        # A leaf node is the end of a branch — it contains a final class label
         if node.is_leaf_node():
             return node.value
 
