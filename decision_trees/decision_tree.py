@@ -158,7 +158,7 @@ class DecisionTree:
 
     def _traverse_tree(self, x, node):
         # If current node is a leaf, return its stored class value
-        # If the tree has reached a leaf node, STOP and return the predictioned class label (0 or 1)
+        # If the tree has reached a leaf node, STOP and return the predicted class label (0 or 1)
         # A leaf node is the end of a branch — it contains a final class label - like 0 or 1 for our binary classification
         if node.is_leaf_node():
             return node.value
