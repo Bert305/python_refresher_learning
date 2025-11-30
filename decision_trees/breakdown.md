@@ -1,179 +1,95 @@
-Here you go — **the exact same material**, formatted cleanly as a README section.
-You can copy/paste it directly into `README.md`.
+# Decision Tree Implementation
 
----
+A custom implementation of a decision tree classifier built from scratch using NumPy.
 
-# 🧠 Big-Picture Breakdown (How This Decision Tree Works)
+## Overview
 
-This project includes a simple, fully custom implementation of a **Decision Tree Classifier**.
-Below is a high-level overview of how the code works internally — useful for understanding the algorithm and for documenting the project.
+This implementation uses information gain (based on entropy) to recursively build a binary decision tree for classification tasks.
 
----
+## Classes
 
-## 🌳 Classes Overview
-
-### **`Node`**
+### `Node`
 
 Represents a single node in the decision tree.
 
-A node can be:
+**Properties:**
+- **Decision node**: Contains `feature`, `threshold`, `left`, and `right` child nodes
+- **Leaf node**: Contains `value` (the predicted class) with no children
 
-* **Decision Node**
-  Contains:
+**Methods:**
+- `is_leaf_node()`: Returns `True` if the node is a leaf (i.e., has a `value` set)
 
-  * `feature` — the index of the feature to split on
-  * `threshold` — the numeric value used to decide left vs right
-  * `left` — left subtree
-  * `right` — right subtree
+### `DecisionTree`
 
-* **Leaf Node**
-  Contains:
+The main classifier class that builds and uses the decision tree.
 
-  * `value` — the final predicted class
-  * No children
+**Methods:**
+- `fit(X, y)`: Trains the tree on feature matrix `X` and labels `y`
+- `predict(X)`: Returns class predictions for input samples `X`
 
-The method `is_leaf_node()` simply checks whether the node stores a `value`.
+## Training Process
 
----
+### 1. `fit(X, y)`
+- Determines the number of features to consider at each split
+- Initiates recursive tree building via `_grow_tree(X, y)`
 
-## 🌲 `DecisionTree` Class
+### 2. `_grow_tree(X, y, depth)`
+Recursively builds the tree by:
 
-The `DecisionTree` class is responsible for:
+**Stopping conditions:**
+- Maximum depth reached
+- All labels are identical
+- Insufficient samples to split further
 
-* **Training** the tree with `fit(X, y)`
-* **Recursively building** the tree using `_grow_tree`
-* **Finding the best splits** using entropy + information gain
-* **Predicting** classes for new samples with `predict(X)`
+**If stopping:** Creates a leaf node with the most common label
 
-This implementation supports **numeric features only**, and class labels are assumed to be integers (`0, 1, ...`).
+**If continuing:**
+- Randomly selects a subset of features to consider
+- Finds the best split using `_best_split()`
+- Splits the data and recursively grows left and right subtrees
+- Returns a decision node with split information and child nodes
 
----
+### 3. `_best_split(X, y, feat_idxs)`
+- Evaluates each candidate feature
+- Tests each unique value as a potential threshold
+- Computes information gain for each split
+- Returns the feature and threshold with maximum information gain
 
-# 🚀 Training Process Overview
+### 4. `_information_gain(y, X_column, threshold)`
+Calculates information gain using:
 
-Training follows this flow:
+```
+IG = H(parent) - (n_left/n × H(left) + n_right/n × H(right))
+```
 
----
+Where higher IG indicates a better split.
 
-## 🔹 1. `fit(X, y)`
+### 5. `_entropy(y)`
+- Counts label frequencies using `np.bincount`
+- Converts counts to probabilities
+- Returns `-Σ p log p` for non-zero probabilities
 
-* Determines how many features to use per split (`n_features`)
-* Starts building the tree by calling `_grow_tree(X, y)`
+## Prediction Process
 
----
+### 1. `predict(X)`
+- Iterates through each sample in `X`
+- Calls `_traverse_tree()` for each sample
+- Returns predictions as a NumPy array
 
-## 🔹 2. `_grow_tree(X, y, depth)`
+### 2. `_traverse_tree(x, node)`
+Traverses the tree recursively:
+- **If leaf node:** Returns `node.value`
+- **If decision node:** 
+  - Compares `x[node.feature]` to `node.threshold`
+  - Recurses left if `<= threshold`, otherwise recurses right
 
-This is the **recursive heart** of the algorithm.
+## Usage
 
-Stopping conditions:
+```python
+# Create and train the tree
+tree = DecisionTree(max_depth=10)
+tree.fit(X_train, y_train)
 
-* Maximum depth reached
-* All labels in this node are identical (pure node)
-* Not enough samples to split further
-
-If any condition is met:
-
-* It creates a **leaf node** using the most common label in `y`.
-
-Otherwise:
-
-* Randomly selects a subset of features (`feat_idxs`)
-* Finds the best possible split using `_best_split`
-* Splits the dataset based on that threshold
-* Recursively builds:
-
-  * Left subtree
-  * Right subtree
-* Returns a **decision node** containing:
-
-  * best feature
-  * best threshold
-  * left & right child nodes
-
----
-
-## 🔹 3. `_best_split(X, y, feat_idxs)`
-
-For each selected feature:
-
-* For each unique value in that column:
-
-  * Computes **information gain**
-
-Chooses the split (feature + threshold) that yields the **highest information gain**.
-
----
-
-## 🔹 4. `_information_gain(y, X_column, threshold)`
-
-Computes:
-
-1. **Parent entropy**
-2. Splits dataset into left/right using the threshold
-3. Computes **child entropies**
-4. Computes information gain:
-
-[
-IG = H(parent) - \left( \frac{n_l}{n}H(left) + \frac{n_r}{n}H(right) \right)
-]
-
-Higher information gain = better split.
-
----
-
-## 🔹 5. `_entropy(y)`
-
-Entropy formula:
-
-[
-H = -\sum p \log(p)
-]
-
-Where `p` are the class label probabilities.
-Used to measure how “mixed” a node is.
-
----
-
-## 🔹 6. `_most_common_label(y)`
-
-Returns the most frequent label in the current node.
-Used when creating leaf nodes.
-
----
-
-# 🔮 Prediction Process Overview
-
-Prediction follows this flow:
-
----
-
-## 🔹 7. `predict(X)`
-
-Loops through each sample in `X` and calls `_traverse_tree`.
-
-Returns a NumPy array of predictions.
-
----
-
-## 🔹 8. `_traverse_tree(x, node)`
-
-For a single sample:
-
-* If `node` is a leaf → return its stored class label.
-* Otherwise:
-
-  * Check the node’s feature + threshold
-  * Follow the appropriate branch:
-
-    * `<= threshold` → go left
-    * `> threshold`  → go right
-
-Continues recursively until it reaches a leaf node.
-
-This mirrors how real decision trees classify new input samples:
-
-> “Walk down the tree, following decisions, until hitting a leaf.
-> That leaf’s value is the prediction.”
-
----
+# Make predictions
+predictions = tree.predict(X_test)
+```
