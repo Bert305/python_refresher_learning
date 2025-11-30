@@ -113,9 +113,6 @@ Computes:
 IG = H(parent) - (n_l/n * H(left) + n_r/n * H(right))
 ```
 
-
-```
-
 Higher information gain = better split.
 
 ---
