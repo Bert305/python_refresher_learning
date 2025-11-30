@@ -110,7 +110,9 @@ Computes:
 4. Computes information gain:
 
 ```
-![Information Gain Formula](https://latex.codecogs.com/svg.image?IG=H(parent)-\left(\frac{n_l}{n}H(left)&plus;\frac{n_r}{n}H(right)\right))
+```
+IG = H(parent) - (n_l/n * H(left) + n_r/n * H(right))
+```
 ```
 ```
 
