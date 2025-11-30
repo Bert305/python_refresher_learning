@@ -177,12 +177,3 @@ This mirrors how real decision trees classify new input samples:
 > That leaf’s value is the prediction.”
 
 ---
-
-If you’d like, I can add:
-
-* A **diagram of the tree flow**
-* A **Usage section**
-* A **Titanic example section**
-* Badges, project structure, or installation steps
-
-Just tell me!
