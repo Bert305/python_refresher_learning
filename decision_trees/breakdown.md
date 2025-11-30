@@ -110,7 +110,8 @@ Computes:
 4. Computes information gain:
 
 ```
-IG = H(parent) - ((n_l/n)H(left) + (n_r/n)H(right))
+![Information Gain Formula](https://latex.codecogs.com/svg.image?IG=H(parent)-\left(\frac{n_l}{n}H(left)&plus;\frac{n_r}{n}H(right)\right))
+```
 ```
 
 Higher information gain = better split.
