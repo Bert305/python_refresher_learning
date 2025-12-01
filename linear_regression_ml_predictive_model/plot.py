@@ -31,28 +31,30 @@ plt.show() # displays the histogram
 
 
 # Scatter plot for FUELCONSUMPTION_COMB vs CO2EMISSIONS
-# x = FUELCONSUMPTION_COMB, y = CO2EMISSIONS, color = blue
-plt.scatter(cdf.FUELCONSUMPTION_COMB, cdf.CO2EMISSIONS,  color='blue')
+# x = FUELCONSUMPTION_COMB, y = CO2EMISSIONS
+plt.scatter(cdf.FUELCONSUMPTION_COMB, cdf.CO2EMISSIONS,  color='blue', label='Fuel Consumption Comb', alpha=0.6)
 plt.xlabel("FUELCONSUMPTION_COMB") # The x-axis label
 plt.ylabel("Emission") # The y-axis label
+plt.legend()
 plt.show() # displays the scatter plot
 
 
 # Scatter plot for ENGINESIZE vs CO2EMISSIONS
-# x = ENGINESIZE, y = CO2EMISSIONS, color = blue
-plt.scatter(cdf.ENGINESIZE, cdf.CO2EMISSIONS,  color='blue')
+# x = ENGINESIZE, y = CO2EMISSIONS
+plt.scatter(cdf.ENGINESIZE, cdf.CO2EMISSIONS,  color='red', label='Engine Size', alpha=0.6)
 plt.xlabel("Engine size") # The x-axis label
 plt.ylabel("Emission") # The y-axis label
 plt.xlim(0,27) # Sets the x-axis limits
+plt.legend()
 plt.show() # displays the scatter plot
 
 
-
 # Scatter plot for CYLINDERS vs CO2EMISSIONS
-# x = CYLINDERS, y = CO2EMISSIONS, color = blue
-plt.scatter(cdf.CYLINDERS, cdf.CO2EMISSIONS,  color='blue')
+# x = CYLINDERS, y = CO2EMISSIONS
+plt.scatter(cdf.CYLINDERS, cdf.CO2EMISSIONS,  color='green', label='Cylinders', alpha=0.6)
 plt.xlabel("CYLINDERS") # The x-axis label
 plt.ylabel("CO2 Emission") # The y-axis label
+plt.legend()
 plt.show() # displays the scatter plot
 
 
