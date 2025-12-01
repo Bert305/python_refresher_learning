@@ -156,3 +156,12 @@ fuel_city = 10
 fuel_hwy = 8
 predicted_emission = regressor.predict(np.array([[engine_size, cylinders, fuel_city, fuel_hwy]])) # We need to reshape the input to be a 2D array with one row and four columns.
 print(f"Predicted CO2 emissions for engine size {engine_size}L, cylinders {cylinders}, city fuel {fuel_city}, hwy fuel {fuel_hwy}: {predicted_emission[0]:.2f} g/km")
+
+
+
+# | Metric           | Meaning                                                  |
+# | ---------------- | -------------------------------------------------------- |
+# | **MAE = 16.71**  | Your predictions are off by ±16.71 on average            |
+# | **MSE = 511**    | The average squared error is 511                         |
+# | **RMSE = 22.62** | Your prediction error is about ±23 in the original units |
+# | **R² = 0.88**    | Your model explains 88% of CO₂ variation                 |
