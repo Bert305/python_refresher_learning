@@ -12,6 +12,7 @@
 # solubility - means the ability to be dissolved, especially in water
 
 import pandas as pd
+import numpy as np
 
 # Load the dataset from a CSV file
 df = pd.read_csv('https://raw.githubusercontent.com/dataprofessor/data/refs/heads/master/delaney_solubility_with_descriptors.csv')
@@ -73,43 +74,52 @@ from sklearn.linear_model import LinearRegression
 
 lr = LinearRegression()
 # Fit the model to the training data
-lr.fit(X_train, y_train)
+lr.fit(X_train, y_train) # So 80% of data is used to train the model
 
 print("Model training complete.")
 
-y_lr_train_pred = lr.predict(X_train)
-y_lr_test_pred = lr.predict(X_test)
+y_lr_train_pred = lr.predict(X_train) # 80% of data for training --> feature column values
+y_lr_test_pred = lr.predict(X_test) # 20% of data for testing --> feature column values
 
 print(f"y_lr_train_pred shape: {y_lr_train_pred}") # 915 rows of predictions  --> 80% of 1144 rows
 print(f"y_lr_test_pred shape: {y_lr_test_pred}") # 229 rows of predictions  --> 20% of 1144 rows
 
 
-
 # Compare the predicted values with the actual values in the training set
 
-from sklearn.metrics import mean_squared_error, r2_score
+from sklearn.metrics import mean_squared_error, r2_score 
 
 mse_train = mean_squared_error(y_train, y_lr_train_pred)
 r2_train = r2_score(y_train, y_lr_train_pred)
+lr_rmse = np.sqrt(mse_train)
 
 lr_test_mse = mean_squared_error(y_test, y_lr_test_pred)
 lr_test_r2 = r2_score(y_test, y_lr_test_pred)
 
 
-print(f"Training set - Mean Squared Error: {mse_train}") # Printing the MSE for training set
-print(f"Training set - R^2 Score: {r2_train}") # Printing the R^2 score for training set
-print(f"Test set - Mean Squared Error: {lr_test_mse}")
-print(f"Test set - R^2 Score: {lr_test_r2}")
 
-# The Mean Squared Error (MSE) is a measure of how close the predicted values are to the actual values.
-# A lower MSE indicates a better fit of the model to the data.
+# print(f"Training set - Mean Squared Error: {mse_train}") # Printing the MSE for training set
+# print(f"Training set - R^2 Score: {r2_train}") # Printing the R^2 score for training set
+# print(f"Test set - Mean Squared Error: {lr_test_mse}")
+# print(f"Test set - R^2 Score: {lr_test_r2}")
 
 
-lr_results = pd.DataFrame(['Linear Regression', lr_test_mse, lr_test_r2, lr_test_mse, lr_test_r2]).transpose()
 
-lr_results.columns = ['Method', 'Training MSE', 'Train R^2', 'Test MSE', 'Test R^2']
+# Create comparison DataFrames for Linear Regression
+lr_train_comparison = pd.DataFrame({
+    'Actual': y_train,
+    'Predicted': y_lr_train_pred
+})
 
-print(lr_results) # This will print the results of the Linear Regression model, which includes the training and test MSE and R^2 scores.
+lr_test_comparison = pd.DataFrame({
+    'Actual': y_test,
+    'Predicted': y_lr_test_pred
+})
+
+print("\nLinear Regression - Training Set Comparison:")
+print(lr_train_comparison)
+print("\nLinear Regression - Test Set Comparison:")
+print(lr_test_comparison)
 
 #----------------------------------------------------
 
@@ -136,17 +146,27 @@ from sklearn.metrics import mean_squared_error, r2_score
 
 rf_train_mse = mean_squared_error(y_train, y_rf_train_pred)
 rf_train_r2 = r2_score(y_train, y_rf_train_pred)
+rf_rmse = np.sqrt(rf_train_mse)
 
 rf_test_mse = mean_squared_error(y_test, y_rf_test_pred)
 rf_test_r2 = r2_score(y_test, y_rf_test_pred)
 
 
-rf_results = pd.DataFrame(['Random Forest', rf_train_mse, rf_train_r2, rf_test_mse, rf_test_r2]).transpose()
+# Create comparison DataFrames for Random Forest
+rf_train_comparison = pd.DataFrame({
+    'Actual': y_train,
+    'Predicted': y_rf_train_pred
+})
 
-rf_results.columns = ['Method', 'Training MSE', 'Train R^2', 'Test MSE', 'Test R^2']
+rf_test_comparison = pd.DataFrame({
+    'Actual': y_test,
+    'Predicted': y_rf_test_pred
+})
 
-
-print(rf_results) # This will print the results of the Random Forest model, which includes the training and test MSE and R^2 scores.
+print("\nRandom Forest - Training Set Comparison:")
+print(rf_train_comparison)
+print("\nRandom Forest - Test Set Comparison:")
+print(rf_test_comparison)
 
 
 # what's the difference between Linear Regression and Random Forest Regression?
@@ -156,9 +176,30 @@ print(rf_results) # This will print the results of the Random Forest model, whic
 
 # Linear Regression vs Random Forest Regression
 
-# Model Comparison
-model_comparison = pd.concat([lr_results, rf_results], ignore_index=True)
+# Model Comparison - Test Set Only
+model_comparison = pd.DataFrame({
+    'Actual': y_test,
+    'LR Predicted': y_lr_test_pred,
+    'RF Predicted': y_rf_test_pred
+})
+print("\nModel Comparison - Test Set:")
 print(model_comparison)
+
+# print the accuracy metrics for Random Forest versus Linear Regression
+print(f"Random Forest - Test set - Mean Squared Error: {rf_test_mse:.4f}") # Printing the MSE for test set - predicted vs actual
+print(f"Random Forest - Test set - R^2 Score: {rf_test_r2:.4f}") # Printing the R^2 score for test set - the accuracy of the model
+print(f"Random Forest - Test set - Root Mean Squared Error: {rf_rmse:.4f}") # Printing the RMSE for test set - how far off the predictions are from ground truth on average
+print(f"Linear Regression - Test set - Mean Squared Error: {lr_test_mse:.4f}") # Printing the MSE for test set - predicted vs actual
+print(f"Linear Regression - Test set - R^2 Score: {lr_test_r2:.4f}") # Printing the R^2 score for test set - the accuracy of the model
+print(f"Linear Regression - Test set - Root Mean Squared Error: {lr_rmse:.4f}") # Printing the RMSE for test set - how far off the predictions are from ground truth on average
+
+
+# The Mean Squared Error (MSE) is a measure of how close the predicted values are to the actual values.
+# A lower MSE indicates a better fit of the model to the data.
+# R^2 Score shows how well the model explains it's accuracy.
+# A Root Mean Squared Error (RMSE) is the square root of the MSE, showing how far predictions are from ground truth on average
+
+
 
 
 # Data Visualization
@@ -179,3 +220,41 @@ plt.legend()
 plt.show()
 # This scatter plot shows the actual values of the target variable (y_test) on the x-axis and the predicted values from both models on the y-axis.
 
+
+
+# Random Forest (Test set)-----
+
+# MSE: 1.0521
+# R²: 0.7584
+# RMSE: 1.0282
+
+
+# Linear Regression (Test set)------
+
+# MSE: 0.9991
+# R²: 0.7706
+# RMSE: 1.0070
+
+# ✔ Linear Regression performed slightly better than Random Forest
+
+# Because it has:
+
+# Lower MSE → better
+
+# Lower RMSE → better
+
+# Higher R² Score → more variance explained
+
+# ✔ R² Score comparison:
+
+# Random Forest R² = 0.7584
+
+# Linear Regression R² = 0.7706
+
+# This means:
+
+# LR explains 77.06% of the variability in solubility
+
+# RF explains 75.84%
+
+# Linear Regression is the winner, but only by a small margin.
