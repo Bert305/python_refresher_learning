@@ -79,8 +79,8 @@ from sklearn.model_selection import train_test_split
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
 # Training data is 80% of the original data, and testing data is 20% of the original data.
 
-
-type(X_train), np.shape(X_train), np.shape(X_train)
+# Display the shapes of the training and testing sets
+type(X_train), np.shape(X_train), np.shape(y_train)
 
 from sklearn import linear_model
 
@@ -96,9 +96,18 @@ regressor.fit(X_train, y_train) # fit means learn from the training data.
 
 # Print the coefficients
 # With multiple linear regression, we have multiple coefficients (one for each feature)
-print ('Intercept: ',regressor.intercept_) # --> Intercept = the pollution when all features are 0.
+print ('Intercept: ',regressor.intercept_) # --> Intercept = 67.82.
+# Meaning:
+# This is the predicted CO₂ emissions when all input features are 0:
+# Engine size = 0
+# Cylinders = 0
+# Fuel consumption city = 0
+# Fuel consumption highway = 0
 print ('Coefficients: ', regressor.coef_) # --> Coefficients for ENGINESIZE, CYLINDERS, FUELCONSUMPTION_CITY, FUELCONSUMPTION_HWY
-
+# Coefficients:  [11.23567565  7.0089373   5.59604353  3.81386072]
+#  Meaning: CO2​=67.8271+11.2357(engine size)+7.0089(cylinders)+5.5960(city fuel)+3.8139(highway fuel)
+# For each additional unit increase in the respective feature, the CO₂ emissions are expected to increase
+# by the value of the corresponding coefficient, assuming all other features remain constant.
 
 
 from sklearn.metrics import mean_absolute_error, mean_squared_error, r2_score
