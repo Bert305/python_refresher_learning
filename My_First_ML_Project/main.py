@@ -138,8 +138,8 @@ from sklearn.ensemble import RandomForestRegressor
 rf = RandomForestRegressor(max_depth=2, random_state=100)
 rf.fit(X_train, y_train)
 
-y_rf_train_pred = rf.predict(X_train)
-y_rf_test_pred = rf.predict(X_test)
+y_rf_train_pred = rf.predict(X_train) # predictions made using feature columns from training set
+y_rf_test_pred = rf.predict(X_test) # predictions made using feature columns from testing set
 
 
 from sklearn.metrics import mean_squared_error, r2_score
@@ -156,12 +156,12 @@ rf_test_r2 = r2_score(y_test, y_rf_test_pred)
 rf_train_comparison = pd.DataFrame({
     'Actual': y_train,
     'Predicted': y_rf_train_pred
-})
+}) # compare predicted vs actual for training set
 
 rf_test_comparison = pd.DataFrame({
     'Actual': y_test,
     'Predicted': y_rf_test_pred
-})
+}) # compare predicted vs actual for test set
 
 print("\nRandom Forest - Training Set Comparison:")
 print(rf_train_comparison)
@@ -171,8 +171,9 @@ print(rf_test_comparison)
 
 # what's the difference between Linear Regression and Random Forest Regression?
 
-# Linear Regression is a simple model that assumes a linear relationship between the features and the target variable.
+# Linear Regression - is a simple model that assumes a linear relationship between the features and the target variable.
 
+# Random Forest Regression - is an ensemble model that builds many decision trees and averages their predictions.
 
 # Linear Regression vs Random Forest Regression
 
