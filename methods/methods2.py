@@ -49,6 +49,7 @@ find_min = [1,2,3,4,5]
 min_number = min(find_min)
 print(min_number) # 1
 
+# count occurrences in list
 my_list3 = [1, 2, 2, 3, 4, 2, 5, 2] 
 count = my_list3.count(2) 
 print(count) 

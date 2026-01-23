@@ -25,7 +25,7 @@ print(mom_replace)
 
 
 # strip() - Removes any leading and trailing whitespace from the string.
-my_string="Hello" 
+my_string=" Hello    " 
 trimmed = my_string.strip()
 print(trimmed) # 'Hello' --->  Removes any leading and trailing whitespace from the string.
 
