@@ -62,3 +62,34 @@ def loop_backwards(num):
     return list
 
 print(loop_backwards([1,2,3,4,5])) # [5,4,3,2,1]
+
+
+def highest_and_lowest(num):
+
+    highest = num[0]
+    lowest = num[0]
+    
+    for i in range(len(num)):
+        if num[i] > highest:
+            highest = num[i]
+        else:
+            lowest = num[i]
+    
+    return [highest, lowest]
+
+print(highest_and_lowest([1,2,3,4,5])) # [5,1]
+
+
+def lower_and_upper(string):
+
+    char = []
+    
+    for i in range(len(string)):
+        if i % 2 == 0:
+            char.append(string[i].lower())
+        else:
+            char.append(string[i].upper())
+    
+    return char
+
+print(lower_and_upper(["h","e","l","l","o","w","o","r","l","d"])) # ["h", "E", "l", "L", "o", "W", "o", "R", "l", "D"]
