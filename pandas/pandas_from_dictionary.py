@@ -8,4 +8,5 @@ print(df)
 print(df['Name'])  # Accessing a single column
 print(df[['Name', 'Age']])  # Accessing multiple columns
 print(df.iloc[2])   # Access the third row by position
+print(df[df['Age'] >= 30])  # Access rows where Age is greater than or equal to30
 # print(df.loc[1])    # Access the second row by label

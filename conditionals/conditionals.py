@@ -21,6 +21,14 @@ def odd_or_even(num):
 print(odd_or_even([1,2,3,4,5,6,7,8,9,10])) # [[1, 3, 5, 7, 9], [2, 4, 6, 8, 10]]
 
 
+def loop_backwards(num):
+    list = []
+    for i in range(len(num)-1, -1, -1):
+        list.append(num[i])
+    
+    return list
+
+print(loop_backwards([1,2,3,4,5])) # [5,4,3,2,1]
 
 
 def string_odd_or_even(string):
@@ -51,17 +59,6 @@ def find_target(num, target):
 
 print(find_target([2,1,7,8,9,5], 6)) # [1,5] index 1 and 5 add up to 6
 
-
-
-
-def loop_backwards(num):
-    list = []
-    for i in range(len(num)-1, -1, -1):
-        list.append(num[i])
-    
-    return list
-
-print(loop_backwards([1,2,3,4,5])) # [5,4,3,2,1]
 
 
 def highest_and_lowest(num):
