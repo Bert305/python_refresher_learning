@@ -42,11 +42,39 @@ The repository is organized into directories, each focusing on a specific Python
    cd python_refresher_learning
    ```
 
-2. **Explore Topics:**
+2. **Create a Virtual Environment:**
+
+   ```bash
+   python -m venv .venv
+   ```
+
+3. **Activate the Virtual Environment:**
+
+   Windows (PowerShell):
+
+   ```powershell
+   .\.venv\Scripts\Activate.ps1
+   ```
+
+   macOS / Linux (bash/zsh):
+
+   ```bash
+   source .venv/bin/activate
+   ```
+
+4. **Install Dependencies:**
+
+   After activating the virtual environment, install the required packages:
+
+   ```bash
+   pip install -r requirements.txt
+   ```
+
+5. **Explore Topics:**
 
    Browse the directories to study specific topics. Each folder contains Python scripts (`.py`) demonstrating the concept.
 
-3. **Run Examples:**
+6. **Run Examples:**
 
    Execute the scripts using your preferred Python interpreter to see the concepts in action.
 
