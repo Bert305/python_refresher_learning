@@ -12,7 +12,7 @@ flask>=2.0.0
 requests>=2.25.0
 beautifulsoup4>=4.9.0
 scrapy>=2.5.0
-scrapy-selenium>=0.11.0
+# scrapy-selenium is unmaintained (latest 0.0.7) and pins selenium<4 — removed
 selenium>=4.10.0
 webdriver-manager>=3.8.0
 
