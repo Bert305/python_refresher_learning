@@ -2,15 +2,18 @@
 
 
 class Car:
+    # The __init__ method is the constructor that initializes the attributes of the Car class
     def __init__(self, make, model, year):
         self.make = make
         self.model = model
         self.year = year
 
+    # The info method returns a formatted string with the car's details
     def info(self):
         return f"{self.year} {self.make} {self.model}"
     
     
+    # The show_make method returns the make of the car
     def show_make(self):
         return f"Car Make: {self.make}"
     
